@@ -1,10 +1,13 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
     id 'java-gradle-plugin'
+    id 'maven-publish'
 }
 
-group 'org.example'
+group 'com.williambl.bluej_jar'
 version '1.0-SNAPSHOT'
+
+java.targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
@@ -17,9 +20,15 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("bluej-jar") {
-            id = "com.williambl.bluej-jar"
+        "bluej-jar" {
+            id = "com.williambl.bluej_jar.bluej-jar"
             implementationClass = "com.williambl.bluej_jar.BlueJJar"
         }
+    }
+}
+
+publishing {
+    repositories {
+        mavenLocal()
     }
 }
