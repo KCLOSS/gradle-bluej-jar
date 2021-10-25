@@ -5,12 +5,18 @@ import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.jvm.tasks.Jar
 
+/**
+ * BlueJ JAR Export plugin for Gradle.
+ */
 class BlueJJar: Plugin<Project> {
     override fun apply(project: Project) {
         project.tasks.register("blueJJar", Jar::class.java, Jar::blueJ)
     }
 }
 
+/**
+ * Set up the BlueJ JAR task.
+ */
 fun Jar.blueJ() {
     group = "build"
     description = "Build a JAR file which can be imported as a BlueJ Project"
