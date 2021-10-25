@@ -2,6 +2,9 @@
 
 This is a Gradle plugin for producing JAR files which are valid [BlueJ](https://bluej.org/) project archives.
 
+This plugin only works in Java projects, as BlueJ only supports Java and [Stride](https://stride-lang.net/). It also
+only works in the `main` Source Set. Support for non-main Source Sets is planned.
+
 ## What is a BlueJ project archive?
 
 A BlueJ project archive has several differences to a 'normal' JAR file:
@@ -22,6 +25,8 @@ The plugin does not offer configuration at this time.
 
  - Configuration (not include `.class` files, not include certain libraries, etc.)
  - Research whether the JAR is required to be a 'fat JAR', and if not, add an option to disable this
+   - Research whether the libs must be copied to `+libs` if the JAR is fat
  - Possible `project.bluej` generation, to allow classes to be placed nicely in BlueJ's graph view
  - `README.TXT` generation from top-level readme files or from `package-info.java` javadoc.
  - Task to open the resulting JAR in BlueJ, for testing.
+ - Task to change Source Set(s) used
