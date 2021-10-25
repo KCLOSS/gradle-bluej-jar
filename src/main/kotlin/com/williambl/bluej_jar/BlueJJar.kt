@@ -1,9 +1,12 @@
 package com.williambl.bluej_jar
 
+import org.apache.log4j.spi.LoggerFactory
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.jvm.tasks.Jar
+
+val logger = org.slf4j.LoggerFactory.getLogger("BlueJ JAR Export")
 
 /**
  * BlueJ JAR Export plugin for Gradle.
@@ -22,9 +25,17 @@ fun Jar.blueJ() {
     description = "Build a JAR file which can be imported as a BlueJ Project"
     archiveClassifier.set("bluej")
 
-    val java = project.extensions.getByType(JavaPluginExtension::class.java)
+    val java = project.extensions.findByType(JavaPluginExtension::class.java)
+    if (java == null) {
+        logger.error("Could not find Java plugin! Java is required to export BlueJ JARs.")
+        return
+    }
 
-    val mainSourceSet = java.sourceSets.getAt("main")
+    val mainSourceSet = java.sourceSets.findByName("main")
+    if (mainSourceSet == null) {
+        logger.error("Could not find `main` Source Set! BlueJ JAR Export currently does not support non-main Source Set.")
+        return
+    }
 
     dependsOn(mainSourceSet.runtimeClasspath)
 
