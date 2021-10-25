@@ -21,8 +21,10 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        "bluej-jar" {
+        blueJJar {
             id = "com.williambl.bluej_jar.bluej-jar"
+            displayName = "BlueJ Jar Export"
+            description = "Creates JAR files which are valid BlueJ project archives"
             implementationClass = "com.williambl.bluej_jar.BlueJJar"
         }
     }
@@ -33,12 +35,6 @@ pluginBundle {
     vcsUrl = 'https://github.com/kcloss/gradle-bluej-jar'
     description = 'Creates JAR files which are valid BlueJ project archives'
     tags = ['bluej', 'jar', 'export', 'java']
-
-    plugins {
-        "bluej-jar" {
-            displayName = 'BlueJ Jar Export'
-        }
-    }
 }
 
 publishing {
