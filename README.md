@@ -5,6 +5,10 @@ This is a Gradle plugin for producing JAR files which are valid [BlueJ](https://
 This plugin only works in Java projects, as BlueJ only supports Java and [Stride](https://stride-lang.net/). It also
 only works in the `main` Source Set. Support for non-main Source Sets is planned.
 
+For alternative build systems:
+- [Script for Maven projects](https://github.com/KCLOSS/maven-bluej)
+
+
 ## What is a BlueJ project archive?
 
 A BlueJ project archive has several differences to a 'normal' JAR file:
