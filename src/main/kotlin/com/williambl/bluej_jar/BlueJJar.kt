@@ -34,6 +34,6 @@ fun Jar.blueJ() {
         it.into("+libs")
     }
     from({
-        mainSourceSet.runtimeClasspath.filter { it.name.equals("README.TXT", true) }.map { project.zipTree(it) }
+        mainSourceSet.runtimeClasspath.filter { it.name.equals("README.TXT", true) || it.name.equals("project.bluej") }.map { project.zipTree(it) }
     })
 }
