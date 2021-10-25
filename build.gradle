@@ -2,10 +2,11 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
     id 'java-gradle-plugin'
     id 'maven-publish'
+    id "com.gradle.plugin-publish" version "0.16.0"
 }
 
 group 'com.williambl.bluej_jar'
-version '1.0-SNAPSHOT'
+version '0.1'
 
 java.targetCompatibility = JavaVersion.VERSION_11
 
@@ -23,6 +24,19 @@ gradlePlugin {
         "bluej-jar" {
             id = "com.williambl.bluej_jar.bluej-jar"
             implementationClass = "com.williambl.bluej_jar.BlueJJar"
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/kcloss/gradle-bluej-jar'
+    vcsUrl = 'https://github.com/kcloss/gradle-bluej-jar'
+    description = 'Creates JAR files which are valid BlueJ project archives'
+    tags = ['bluej', 'jar', 'export', 'java']
+
+    plugins {
+        "bluej-jar" {
+            displayName = 'BlueJ Jar Export'
         }
     }
 }
