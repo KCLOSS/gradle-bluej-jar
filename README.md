@@ -8,6 +8,17 @@ only works in the `main` Source Set. Support for non-main Source Sets is planned
 For alternative build systems:
 - [Script for Maven projects](https://github.com/KCLOSS/maven-bluej)
 
+## Apply
+
+`bluej-jar` is [available on the Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.williambl.bluej_jar.bluej-jar).
+
+Apply `bluej-jar` with:
+
+```groovy
+plugins {
+  id "com.williambl.bluej_jar.bluej-jar" version "0.1"
+}
+```
 
 ## What is a BlueJ project archive?
 
